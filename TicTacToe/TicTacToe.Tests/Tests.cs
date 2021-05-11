@@ -10,24 +10,28 @@ namespace TicTacToe.Tests
         [Test]
         public void GameCreated_WithTwoPlayers()
         {
-            var players = new List<int>();
+            var createdPlayers = CreatePlayers();
 
-            players.Add(1);
-            players.Add(2);
-
-            Assert.AreEqual(2, players.Count());
+            Assert.AreEqual(2, createdPlayers.Count());
         }
 
         [Test]
-        public void GameStarted_PlayersGetCharacterAssinged()
+        public void GameCreated_PlayersHaveCharacterAssinged()
+        {
+            var createdPlayers = CreatePlayers();
+
+            Assert.AreEqual('X', createdPlayers[1]);
+            Assert.AreEqual('O', createdPlayers[2]);
+        }
+
+        public Dictionary<int, char> CreatePlayers()
         {
             var players = new Dictionary<int, char>();
 
             players.Add(1, 'X');
             players.Add(2, 'O');
 
-            Assert.AreEqual('X', players[1]);
-            Assert.AreEqual('O', players[2]);
+            return players;
         }
     }
 }
