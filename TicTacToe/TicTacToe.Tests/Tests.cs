@@ -24,7 +24,27 @@ namespace TicTacToe.Tests
             Assert.AreEqual('O', createdPlayers[2]);
         }
 
-        public Dictionary<int, char> CreatePlayers()
+        [Test]
+        public void GameCreated_PlayerOneIsOnTurn()
+        {
+            int? playerOnTurn;
+
+            playerOnTurn = 1;
+
+            Assert.AreEqual(1, playerOnTurn);
+        }
+
+        [Test]
+        public void PlayerOneOnTurn_PlayerOneMakesMove_PlayerTwoOnTurn()
+        {
+            int playerOnTurn = 1;
+
+            playerOnTurn = 2;
+
+            Assert.AreEqual(2, playerOnTurn);
+        }
+
+        internal Dictionary<int, char> CreatePlayers()
         {
             var players = new Dictionary<int, char>();
 
