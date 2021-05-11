@@ -35,7 +35,7 @@ namespace TicTacToe.Tests
         }
 
         [Test]
-        public void PlayerOneOnTurn_PlayerOneMakesMove_PlayerTwoOnTurn()
+        public void PlayerOneOnTurn_PlayerOneMadeMove_PlayerTwoOnTurn()
         {
             int playerOnTurn = 1;
 
@@ -44,7 +44,20 @@ namespace TicTacToe.Tests
             Assert.AreEqual(2, playerOnTurn);
         }
 
-        internal Dictionary<int, char> CreatePlayers()
+        [Test]
+        public void PlayerOneOnTurn_PlayerOneMakesMove_MoveHasBeenMade()
+        {
+            bool playerOneMakesMove = false;
+            bool moveMade = false;
+            int playerOnTurn = 1;
+
+            if (playerOnTurn == 1) playerOneMakesMove = true;
+            if (playerOneMakesMove) moveMade = true;
+
+            Assert.IsTrue(moveMade);
+        }
+
+        private Dictionary<int, char> CreatePlayers()
         {
             var players = new Dictionary<int, char>();
 
